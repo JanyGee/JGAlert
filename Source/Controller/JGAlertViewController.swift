@@ -7,12 +7,12 @@
 
 import UIKit
 
-enum JGAlertStyle {
+public enum JGAlertStyle {
     case alert
     case actionSheet
 }
 
-enum JGAlertTransitionType {
+public enum JGAlertTransitionType {
     case fade
     case faceScale
     case dropDown

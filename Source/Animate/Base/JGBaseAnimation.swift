@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol JGAlertAnimationFactory: AnyObject {
+public protocol JGAlertAnimationFactory: AnyObject {
     static func alertAnimation(
         isPresenting: Bool,
         alertStyle: JGAlertStyle?

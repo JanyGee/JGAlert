@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class JGAlert {
+public class JGAlert {
     
     private var previousWindow: UIWindow?
     private var alertWindow: UIWindow?

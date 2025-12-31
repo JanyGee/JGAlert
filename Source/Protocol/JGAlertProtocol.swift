@@ -6,7 +6,7 @@
 //
 import Foundation
 
-@objc protocol JGAlertProtocol {
+@objc public protocol JGAlertProtocol {
     var onConfirm: (() -> Void)? { get set }
     var onCancel: (() -> Void)? { get set }
 }
