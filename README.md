@@ -1,7 +1,7 @@
 # JGAlert
 
 <p align="center" >
-  <img src="[https://github.com/JanyGee/JGAlert/demo.gif](https://github.com/JanyGee/JGAlert/blob/main/demo.gif)">
+  <img src="https://github.com/JanyGee/JGAlert/blob/main/demo.gif">
 </p>
 
 [![CI Status](http://img.shields.io/travis/amayne/JGString.svg?style=flat)](https://travis-ci.org/amayne/JGString)
