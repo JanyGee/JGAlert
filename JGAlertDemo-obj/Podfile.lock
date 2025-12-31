@@ -1,0 +1,16 @@
+PODS:
+  - JGAlert (1.0.1)
+
+DEPENDENCIES:
+  - JGAlert
+
+SPEC REPOS:
+  trunk:
+    - JGAlert
+
+SPEC CHECKSUMS:
+  JGAlert: f3994b20ec419381a35ab4ebdff2bf4c4a3d56fb
+
+PODFILE CHECKSUM: 7cb88dea834a0218f880cf4b0a1d74c6fe76a5ef
+
+COCOAPODS: 1.16.2
