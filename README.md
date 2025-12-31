@@ -45,4 +45,4 @@ Jany Gee, 1321899953@qq.com
 
 ## License
 
-JGString is available under the MIT license. See the LICENSE file for more info.
+JGAlert is available under the MIT license. See the LICENSE file for more info.
