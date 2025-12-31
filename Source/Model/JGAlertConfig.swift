@@ -19,6 +19,7 @@ public enum JGAlertLevel: Int, Comparable {
     }
 }
 
+@objcMembers
 public class JGAlertConfig: NSObject {
     public var alertStyle: JGAlertStyle = .alert //弹框样式
     public var alertTransitionType: JGAlertTransitionType = .fade //弹框动画

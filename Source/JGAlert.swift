@@ -8,14 +8,15 @@
 import Foundation
 import UIKit
 
-public class JGAlert {
+@objcMembers
+public class JGAlert:NSObject {
     
     private var previousWindow: UIWindow?
     private var alertWindow: UIWindow?
     private var alertQueue = ThreadSafeArray<JGAlertConfig>()
     static let shared = JGAlert()
     
-    private init() {
+    private override init() {
         previousWindow = UIWindow.jg_keyWindow()
         
         if #available(iOS 13.0, *) {
