@@ -1,0 +1,6 @@
+framework module JGAlert {
+  umbrella header "JGAlert-umbrella.h"
+
+  export *
+  module * { export * }
+}
