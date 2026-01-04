@@ -16,7 +16,7 @@ public class JGBaseAnimation: NSObject,UIViewControllerAnimatedTransitioning {
         super.init()
     }
     
-    public class func alertAnimation(isPresenting: Bool) -> JGBaseAnimation {
+    @objc public class func alertAnimation(isPresenting: Bool) -> JGBaseAnimation {
         return self.init(isPresenting: isPresenting)
     }
     

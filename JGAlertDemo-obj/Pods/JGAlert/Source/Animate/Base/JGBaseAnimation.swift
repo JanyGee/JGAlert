@@ -9,18 +9,14 @@ import UIKit
 
 public class JGBaseAnimation: NSObject,UIViewControllerAnimatedTransitioning {
     
-    @objc public var isPresenting: Bool
+    private(set) var isPresenting: Bool
     
-    @objc required public init(isPresenting: Bool) {
+    required public init(isPresenting: Bool) {
         self.isPresenting = isPresenting
         super.init()
     }
     
     @objc public class func alertAnimation(isPresenting: Bool) -> JGBaseAnimation {
-        return self.init(isPresenting: isPresenting)
-    }
-    
-    @objc public class func alertAnimation(isPresenting: Bool, alertStyle: JGAlertStyle) -> JGBaseAnimation {
         return self.init(isPresenting: isPresenting)
     }
     
