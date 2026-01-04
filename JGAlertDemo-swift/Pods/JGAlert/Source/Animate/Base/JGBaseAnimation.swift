@@ -11,7 +11,7 @@ public class JGBaseAnimation: NSObject,UIViewControllerAnimatedTransitioning {
     
     @objc public var isPresenting: Bool
     
-    @objc required public init(isPresenting: Bool) {
+    required public init(isPresenting: Bool) {
         self.isPresenting = isPresenting
         super.init()
     }
