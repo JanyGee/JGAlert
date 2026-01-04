@@ -20,10 +20,6 @@ public class JGBaseAnimation: NSObject,UIViewControllerAnimatedTransitioning {
         return self.init(isPresenting: isPresenting)
     }
     
-    public class func alertAnimation(isPresenting: Bool, alertStyle: JGAlertStyle?) -> JGBaseAnimation {
-        return self.init(isPresenting: isPresenting)
-    }
-    
     public func presentAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) { }
      
     public func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) { }

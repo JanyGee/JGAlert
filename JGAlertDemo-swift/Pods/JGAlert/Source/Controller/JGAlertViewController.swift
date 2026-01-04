@@ -362,7 +362,7 @@ extension JGAlertViewController: UIViewControllerTransitioningDelegate {
             return JGAlertDropDownAnimation.alertAnimation(isPresenting: true)
         case .custom:
             if let cls = transitionAnimationClass as? JGBaseAnimation.Type {
-                return cls.alertAnimation(isPresenting: true, alertStyle: alertStyle)
+                return cls.alertAnimation(isPresenting: true)
             }
             return nil
         default:
@@ -380,7 +380,7 @@ extension JGAlertViewController: UIViewControllerTransitioningDelegate {
             return JGAlertDropDownAnimation.alertAnimation(isPresenting: false)
         case .custom:
             if let cls = transitionAnimationClass as? JGBaseAnimation.Type {
-                return cls.alertAnimation(isPresenting: false, alertStyle: alertStyle)
+                return cls.alertAnimation(isPresenting: false)
             }
             return nil
         default:
