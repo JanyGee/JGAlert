@@ -46,7 +46,7 @@ JGAlert.alert(config: config) {
 }
 ```
 
-**public class func alert(config: JGAlertConfig, cancelBlock: (() -> Void)?, comfirmBlock: (() -> Void)?, dismissBlock: (() -> Void)?)**
+**public class func alert(config: JGAlertConfig)**
 ```swift
 let alertView = ActionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 500))
 
