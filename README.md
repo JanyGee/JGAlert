@@ -46,6 +46,16 @@ JGAlert.alert(config: config) {
 }
 ```
 
+**public class func alert(config: JGAlertConfig, cancelBlock: (() -> Void)?, comfirmBlock: (() -> Void)?, dismissBlock: (() -> Void)?)**
+```swift
+let alertView = ActionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 500))
+
+let config = JGAlertConfig()
+config.alertView = alertView
+config.alertStyle = .actionSheet
+JGAlert.alert(config: config)
+```
+
 ## Author
 
 Jany Gee, 1321899953@qq.com
