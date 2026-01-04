@@ -16,11 +16,13 @@ public class JGBaseAnimation: NSObject,UIViewControllerAnimatedTransitioning {
         super.init()
     }
     
-    @objc public class func alertAnimation(isPresenting: Bool) -> JGBaseAnimation {
+    @objc(alertAnimationWithPresenting:)
+    public class func alertAnimation(isPresenting: Bool) -> JGBaseAnimation {
         return self.init(isPresenting: isPresenting)
     }
     
-    @objc public class func alertAnimation(isPresenting: Bool, alertStyle: JGAlertStyle) -> JGBaseAnimation {
+    @objc(alertAnimationWithPresenting:alertStyle:)
+    public class func alertAnimation(isPresenting: Bool, alertStyle: JGAlertStyle) -> JGBaseAnimation {
         return self.init(isPresenting: isPresenting)
     }
     
