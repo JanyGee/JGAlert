@@ -31,12 +31,19 @@ import JGAlert
 
 **public class func alert(config: JGAlertConfig, cancelBlock: (() -> Void)?, comfirmBlock: (() -> Void)?, dismissBlock: (() -> Void)?)**
 ```swift
-"<a>foo</a>".between(left: "<a>", "</a>") // "foo"
-"<a><a>foo</a></a>".between(left: "<a>", "</a>") // "<a>foo</a>"
-"<a>foo".between(left: "<a>", "</a>") // nil
-"Some strings } are very {weird}, dont you think?".between(left: "{", "}") // "weird"
-"<a></a>".between(left: "<a>", "</a>") // nil
-"<a>foo</a>".between(left: "<a>", "<a>") // nil
+let alertView = myView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+
+let config = JGAlertConfig()
+config.alertView = alertView
+config.alertTransitionType = .cutom
+config.transitionAnimationClass = JGDownUpAnimation.self
+JGAlert.alert(config: config) {
+    print("cancel")
+} comfirmBlock: {
+    print("comfir")
+} dismissBlock: {
+    print("dismiss")
+}
 ```
 
 ## Author
