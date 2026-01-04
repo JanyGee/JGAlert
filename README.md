@@ -29,7 +29,7 @@ import JGAlert
 
 ## Methods
 
-**between(left, right)**
+**public class func alert(config: JGAlertConfig, cancelBlock: (() -> Void)?, comfirmBlock: (() -> Void)?, dismissBlock: (() -> Void)?)**
 ```swift
 "<a>foo</a>".between(left: "<a>", "</a>") // "foo"
 "<a><a>foo</a></a>".between(left: "<a>", "</a>") // "<a>foo</a>"
