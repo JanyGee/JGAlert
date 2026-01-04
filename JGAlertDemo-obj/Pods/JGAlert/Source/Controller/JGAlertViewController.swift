@@ -16,7 +16,7 @@ import UIKit
     case fade
     case faceScale
     case dropDown
-    case cutom
+    case custom
 }
 
 final class JGAlertViewController: UIViewController {
@@ -36,7 +36,7 @@ final class JGAlertViewController: UIViewController {
     private(set) var alertView: UIView?
     private(set) var alertStyle: JGAlertStyle?
     private(set) var alertTransitionType: JGAlertTransitionType?
-    private(set) var transitionAnimationClass: JGAlertAnimationFactory.Type?
+    private(set) var transitionAnimationClass: AnyClass?
     private weak var singleTap: UITapGestureRecognizer?
     private var alertViewCenterYConstraint: NSLayoutConstraint?
     private var alertViewCenterYOffset: CGFloat = 0
@@ -57,7 +57,7 @@ final class JGAlertViewController: UIViewController {
     }
     
     //MARK: init
-    init(alertView: UIView? = nil, alertStyle: JGAlertStyle? = nil, alertTransitionType: JGAlertTransitionType? = nil, transitionAnimationClass: JGAlertAnimationFactory.Type? = nil) {
+    init(alertView: UIView? = nil, alertStyle: JGAlertStyle? = nil, alertTransitionType: JGAlertTransitionType? = nil, transitionAnimationClass: AnyClass? = nil) {
         self.alertView = alertView
         self.alertStyle = alertStyle
         self.alertTransitionType = alertTransitionType
@@ -360,8 +360,8 @@ extension JGAlertViewController: UIViewControllerTransitioningDelegate {
             return JGAlertScaleFadeAnimation.alertAnimation(isPresenting: true)
         case .dropDown:
             return JGAlertDropDownAnimation.alertAnimation(isPresenting: true)
-        case .cutom:
-            return transitionAnimationClass?.alertAnimation(isPresenting: true, alertStyle: alertStyle)
+        case .custom:
+            return transitionAnimationClass?.alertAnimation(isPresenting: true, alertStyle: alertStyle!)
         default:
             return nil
         }
@@ -375,8 +375,8 @@ extension JGAlertViewController: UIViewControllerTransitioningDelegate {
             return JGAlertScaleFadeAnimation.alertAnimation(isPresenting: false)
         case .dropDown:
             return JGAlertDropDownAnimation.alertAnimation(isPresenting: false)
-        case .cutom:
-            return transitionAnimationClass?.alertAnimation(isPresenting: false, alertStyle: alertStyle)
+        case .custom:
+            return transitionAnimationClass?.alertAnimation(isPresenting: false, alertStyle: alertStyle!)
         default:
             return nil
         }

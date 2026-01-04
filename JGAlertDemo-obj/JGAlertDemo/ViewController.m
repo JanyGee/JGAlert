@@ -35,6 +35,8 @@
 
     JGAlertConfig *config = [[JGAlertConfig alloc] init];
     config.alertView = alertView;
+    config.alertTransitionType = JGAlertTransitionTypeCustom;
+    config.transitionAnimationClass = JGDownUpAnimation.class;
     [JGAlert alertWithConfig:config
                 cancelBlock:^{
                     NSLog(@"cancel");

@@ -29,7 +29,7 @@ public class JGAlertConfig: NSObject {
     public var alertViewOriginY: CGFloat = 0 //如果是alert，可以设置垂直方向的偏移位置
     public var alertStyleEdging: CGFloat = 15 //如果是alert，可以设置弹框左右两边的padding，默认15
     public var backgroundColor: UIColor = .black.withAlphaComponent(0.8) //背景色
-    public var transitionAnimationClass: JGAlertAnimationFactory.Type?//自定义动画
+    public var transitionAnimationClass: AnyClass?//自定义动画
     public var alertView: (UIView & JGAlertProtocol)?
     public var alertLevel: JGAlertLevel = .low //弹框的级别
     public var cancelBlock: (() -> Void)?

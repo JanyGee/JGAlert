@@ -7,16 +7,13 @@
 
 import UIKit
 
-class JGDownUpAnimation: JGBaseAnimation,JGAlertAnimationFactory {
-    static func alertAnimation(isPresenting: Bool, alertStyle: JGAlertStyle?) -> (any UIViewControllerAnimatedTransitioning)? {
-        return self.init(isPresenting: isPresenting)
-    }
+@objc public class JGDownUpAnimation: JGBaseAnimation {
     
-    override func transitionDuration(using transitionContext: (any UIViewControllerContextTransitioning)?) -> TimeInterval {
+    public override func transitionDuration(using transitionContext: (any UIViewControllerContextTransitioning)?) -> TimeInterval {
         return 0.3
     }
     
-    override func presentAnimateTransition(_ transitionContext: any UIViewControllerContextTransitioning) {
+    public override func presentAnimateTransition(_ transitionContext: any UIViewControllerContextTransitioning) {
         guard let alertController = transitionContext.viewController(forKey: .to)
                     as? JGAlertViewController,
                   let alertView = alertController.alertView
@@ -43,7 +40,7 @@ class JGDownUpAnimation: JGBaseAnimation,JGAlertAnimationFactory {
             )
     }
     
-    override func dismissAnimateTransition(_ transitionContext: any UIViewControllerContextTransitioning) {
+    public override func dismissAnimateTransition(_ transitionContext: any UIViewControllerContextTransitioning) {
         guard let alertController = transitionContext.viewController(forKey: .from)
                     as? JGAlertViewController,
                   let alertView = alertController.alertView
