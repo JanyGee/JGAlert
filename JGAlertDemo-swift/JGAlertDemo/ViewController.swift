@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         let config = JGAlertConfig()
         config.alertView = alertView
-        config.alertTransitionType = .cutom
+        config.alertTransitionType = .custom
         config.transitionAnimationClass = JGDownUpAnimation.self
         JGAlert.alert(config: config) {
             print("cancel")

@@ -9,7 +9,7 @@ import UIKit
 
 public class JGBaseAnimation: NSObject,UIViewControllerAnimatedTransitioning {
     
-    private(set) var isPresenting: Bool
+    @objc public var isPresenting: Bool
     
     @objc required public init(isPresenting: Bool) {
         self.isPresenting = isPresenting
