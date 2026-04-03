@@ -5,7 +5,7 @@ An iOS alert scheduler and popup queue manager for apps that have too many popup
 中文简介：`JGAlert` 主要解决 App 里多个弹框同时出现时的冲突问题，支持弹窗队列、优先级调度、自定义动画和 `Alert` / `ActionSheet` 统一管理。
 
 <p align="center">
-  <img src="demo.gif" alt="JGAlert Demo" width="320">
+  <img src="demo.gif" alt="JGAlert Demo" width="720">
 </p>
 
 [![Version](https://img.shields.io/cocoapods/v/JGAlert.svg?style=flat)](http://cocoapods.org/pods/JGAlert)
