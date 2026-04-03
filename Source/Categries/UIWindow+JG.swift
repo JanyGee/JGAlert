@@ -12,74 +12,42 @@ extension UIWindow {
     static var jg_useNewBTDKeyWindow: Bool = true
 
     // MARK: - Private
+    @available(iOS 13.0, *)
+    private static func _foregroundWindowScenes() -> [UIWindowScene] {
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .filter { $0.activationState == .foregroundActive }
+    }
+
     private static func _keyWindow(from windowScene: UIWindowScene?) -> UIWindow? {
         guard let windowScene = windowScene else { return nil }
 
-        for window in windowScene.windows {
-            if window.isKeyWindow {
-                return window
-            }
-        }
-        return nil
+        return windowScene.windows.first(where: \.isKeyWindow)
     }
 
     // MARK: - Public
     static func jg_keyWindow() -> UIWindow? {
 
         if #available(iOS 13.0, *) {
+            let activeScenes = _foregroundWindowScenes()
 
             if !jg_useNewBTDKeyWindow {
-                return UIApplication.shared.keyWindow
+                return activeScenes.compactMap { _keyWindow(from: $0) }.first
             }
 
-            var keyWindow: UIWindow?
-            var activeWindowSceneCount = 0
+            if let keyWindow = activeScenes.compactMap({ _keyWindow(from: $0) }).first {
+                return keyWindow
+            }
 
-            let scenes = UIApplication.shared.connectedScenes
-            for scene in scenes {
-                if scene.activationState == .foregroundActive,
-                   let windowScene = scene as? UIWindowScene {
-
-                    activeWindowSceneCount += 1
-
-                    if keyWindow == nil {
-                        keyWindow = _keyWindow(from: windowScene)
-                    }
+            for scene in activeScenes {
+                if let visibleWindow = scene.windows.first(where: {
+                    !$0.isHidden && $0.windowLevel == .normal
+                }) {
+                    return visibleWindow
                 }
             }
 
-            // 多个前台 scene，取当前 focused 的
-            if activeWindowSceneCount > 1 {
-                keyWindow = _keyWindow(
-                    from: UIApplication.shared.keyWindow?.windowScene
-                )
-            }
-
-            // fallback：遍历 windows
-            if keyWindow == nil {
-                for window in UIApplication.shared.windows {
-                    if window.isKeyWindow {
-                        keyWindow = window
-                        break
-                    }
-                }
-            }
-
-            // deprecated 但可用
-            if keyWindow == nil,
-               UIApplication.shared.keyWindow?.isKeyWindow == true {
-                keyWindow = UIApplication.shared.keyWindow
-            }
-
-            // 最终兜底：AppDelegate.window
-            if keyWindow == nil,
-               let delegate = UIApplication.shared.delegate,
-               delegate.responds(to: Selector(("window"))),
-               let window = delegate.window {
-                keyWindow = window
-            }
-
-            return keyWindow
+            return activeScenes.first?.windows.first
 
         } else {
             return UIApplication.shared.keyWindow

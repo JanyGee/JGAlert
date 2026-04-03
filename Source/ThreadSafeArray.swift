@@ -42,6 +42,19 @@ final class ThreadSafeArray<Element> {
         }
     }
 
+    func remove(where shouldBeRemoved: (Element) -> Bool) {
+        queue.sync {
+            storage.removeAll(where: shouldBeRemoved)
+        }
+    }
+
+    func removeFirst(where shouldBeRemoved: (Element) -> Bool) {
+        queue.sync {
+            guard let index = storage.firstIndex(where: shouldBeRemoved) else { return }
+            storage.remove(at: index)
+        }
+    }
+
     func first() -> Element? {
         queue.sync {
             storage.first
@@ -55,7 +68,7 @@ final class ThreadSafeArray<Element> {
     }
     
     func max(by areInIncreasingOrder: (Element, Element) -> Bool) -> Element? {
-            queue.sync {
+        queue.sync {
             storage.max(by: areInIncreasingOrder)
         }
     }

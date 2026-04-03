@@ -4,10 +4,9 @@
   <img src="https://github.com/JanyGee/JGAlert/blob/main/demo.gif">
 </p>
 
-[![CI Status](http://img.shields.io/travis/amayne/JGString.svg?style=flat)](https://travis-ci.org/amayne/JGString)
-[![Version](https://img.shields.io/cocoapods/v/JGString.svg?style=flat)](http://cocoapods.org/pods/JGString)
-[![License](https://img.shields.io/cocoapods/l/JGString.svg?style=flat)](http://cocoapods.org/pods/JGString)
-[![Platform](https://img.shields.io/cocoapods/p/JGString.svg?style=flat)](http://cocoapods.org/pods/JGString)
+[![Version](https://img.shields.io/cocoapods/v/JGAlert.svg?style=flat)](http://cocoapods.org/pods/JGAlert)
+[![License](https://img.shields.io/cocoapods/l/JGAlert.svg?style=flat)](http://cocoapods.org/pods/JGAlert)
+[![Platform](https://img.shields.io/cocoapods/p/JGAlert.svg?style=flat)](http://cocoapods.org/pods/JGAlert)
 [![Swift-5.0](http://img.shields.io/badge/Swift-5.0-blue.svg)]()
 
 A lightweight custom alert & actionSheet for iOS.
@@ -35,7 +34,7 @@ let alertView = myView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
 
 let config = JGAlertConfig()
 config.alertView = alertView
-config.alertTransitionType = .cutom
+config.alertTransitionType = .custom
 config.transitionAnimationClass = JGDownUpAnimation.self
 JGAlert.alert(config: config) {
     print("cancel")

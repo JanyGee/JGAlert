@@ -111,8 +111,8 @@ final class JGAlertViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIApplication.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIApplication.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     deinit {
@@ -361,7 +361,7 @@ extension JGAlertViewController: UIViewControllerTransitioningDelegate {
         case .dropDown:
             return JGAlertDropDownAnimation.alertAnimation(isPresenting: true)
         case .custom:
-            return transitionAnimationClass?.alertAnimation(isPresenting: true)
+            return (transitionAnimationClass as? JGBaseAnimation.Type)?.alertAnimation(isPresenting: true)
         default:
             return nil
         }
@@ -376,7 +376,7 @@ extension JGAlertViewController: UIViewControllerTransitioningDelegate {
         case .dropDown:
             return JGAlertDropDownAnimation.alertAnimation(isPresenting: false)
         case .custom:
-            return transitionAnimationClass?.alertAnimation(isPresenting: false)
+            return (transitionAnimationClass as? JGBaseAnimation.Type)?.alertAnimation(isPresenting: false)
         default:
             return nil
         }
