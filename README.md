@@ -50,7 +50,7 @@ pod "JGAlert"
 In Xcode, add this repository as a package dependency:
 
 ```swift
-.package(url: "https://github.com/JanyGee/JGAlert.git", from: "1.0.3")
+.package(url: "https://github.com/JanyGee/JGAlert.git", from: "1.0.4")
 ```
 
 Then add `JGAlert` to your target dependencies.
